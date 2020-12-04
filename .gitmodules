@@ -1,0 +1,4 @@
+[submodule "terraform-boilerplate"]
+	path = terraform-boilerplate
+	url = https://github.com/KimKiHyuk/terraform-boilerplate.git
+	branch = cloud-computing
