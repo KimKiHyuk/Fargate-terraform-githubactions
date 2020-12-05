@@ -259,7 +259,7 @@ void inet_main(int socket_fd)
         {
             response_message = malloc(30);
             
-            sprintf(response_message, "{message: \"Version 1.0.0\"}");
+            sprintf(response_message, "{message: \"Version 2.0.0\"}");
             sprintf(response_header, "HTTP/1.0 200 OK\r\n"
             "Server: web server\r\n"
             "Content-length: %d\r\n"
