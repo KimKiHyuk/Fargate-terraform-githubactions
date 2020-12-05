@@ -1,12 +1,24 @@
-FROM ubuntu:20.04
+FROM mjnhb2001/cura_engine:latest
 
-RUN apt update -y && apt install git -y
-RUN git clone -b cura-engine --single-branch https://github.com/Thrada/20-2-System-Programming-Proj
+WORKDIR /20-2-System-Programming-Proj
 
-WORKDIR ./20-2-System-Programming-Proj
+RUN mkdir project
 
-RUN chmod 755 ./install.sh
+COPY ./fdmprinter.def.json /20-2-System-Programming-Proj/project
+COPY ./fdmextruder.def.json /20-2-System-Programming-Proj/project
+COPY ./proj.c /20-2-System-Programming-Proj/project
 
-RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+WORKDIR /20-2-System-Programming-Proj/project
 
-RUN ./install.sh
+RUN gcc -o proj proj.c
+
+RUN mkdir stl
+RUN mkdir output
+
+WORKDIR /20-2-System-Programming-Proj/project/stl
+
+COPY ./stl /20-2-System-Programming-Proj/project/stl
+
+WORKDIR /20-2-System-Programming-Proj/project
+
+ENTRYPOINT [ "./proj" ]
