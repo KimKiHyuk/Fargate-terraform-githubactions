@@ -306,7 +306,7 @@ void ls_file(int client_fd, char *req_address)
         {
             if(strcmp(dir->d_name, ".") == 0)   continue;
             if(strcmp(dir->d_name, "..") == 0)  continue;
-            fprintf(fp, "<tr><th><a href=\"http://%s/%s\">", req_address, dir->d_name);
+            fprintf(fp, "<tr><th><a href=\"https://keykim.me/%s\">", dir->d_name);
             fprintf(fp, "%s", dir->d_name);
             fprintf(fp, "</a>");
             fprintf(fp, "</th></tr>");
@@ -390,6 +390,7 @@ void inet_main(int socket_fd)
 
             sprintf(response_header, "HTTP/1.0 200 OK\r\n"
                 "Server: web server"
+                "Access-Control-Allow-Origin: *"
                 "Content-length:%d\r\n"
                 "Content-type:text/html\r\n\r\n", (int)strlen(response_header));
             response_fd = open(HTML_FILE_NAME, O_RDONLY);
