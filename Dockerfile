@@ -10,7 +10,7 @@ COPY ./proj.c /20-2-System-Programming-Proj/project
 
 WORKDIR /20-2-System-Programming-Proj/project
 
-RUN gcc -o proj proj.c
+RUN gcc -o proj proj.c -pthread
 
 RUN mkdir stl
 RUN mkdir output
