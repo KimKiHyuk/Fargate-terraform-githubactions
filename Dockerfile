@@ -21,4 +21,7 @@ COPY ./stl /20-2-System-Programming-Proj/project/stl
 
 WORKDIR /20-2-System-Programming-Proj/project
 
+ARG ip
+ENV octo=$ip
+
 ENTRYPOINT [ "./proj" ]
