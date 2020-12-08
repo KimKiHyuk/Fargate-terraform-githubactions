@@ -424,7 +424,7 @@ void inet_main(int socket_fd)
             pthread_create(&tid[1], NULL, print_log, (void *)log);
             response_message = malloc(30);
             
-            sprintf(response_message, "{message: \"Version 1.0.0\"}");
+            sprintf(response_message, "{message: \"Version 1.0.1\"}");
             sprintf(response_header, "HTTP/1.0 200 OK\r\n"
             "Server: web server\r\n"
             "Content-length: %d\r\n"
